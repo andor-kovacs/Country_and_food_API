@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+body {
+    background-color: rgb(32, 200, 200);
+}
+
+.container {
+    background-color: aquamarine;
+    width: 80vw;
+    max-width: 37rem;
+    padding: 3rem 2.5rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 0.62rem;
+    box-shadow: 0 0.3rem 0.3rem black;
+    max-width: 300px;
+}
+
+.search {
+
+    display: flex;
+    flex-wrap: none;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-button {
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+    background-color: bisque;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px rgb(2, 30, 30);
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.county-inp {
+    background-color: aquamarine;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+.flag-img {
+    display: block;
+    width: 50%;
+    min-width: 5rem;
+    margin: 1.5rem auto 1.1rem auto;
+}
