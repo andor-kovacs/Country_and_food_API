@@ -68,7 +68,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.data-wrapper {
+.items {
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
 
@@ -91,4 +91,8 @@ h3 {
     font-size: 1.2rem;
     font-weight: 400;
     color: rgb(152, 39, 39);
+}
+
+.meals {
+    cursor: pointer;
 }

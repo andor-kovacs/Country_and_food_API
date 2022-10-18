@@ -1,5 +1,7 @@
 let searchButton = document.querySelector('.search-button');
 let countryInput = document.querySelector('.county-inp');
+let searchMeal = document.querySelector('.meals');
+
 let result = document.querySelector('.result');
 
 searchButton.addEventListener("click", () => {
@@ -13,42 +15,34 @@ searchButton.addEventListener("click", () => {
             let capital = data[0].capital[0];
             let continent = data[0].continents[0];
             let currency = Object.keys(data[0].currencies)[0];
-            //let INR = data[0].currencies.INR.name;
+            let INR = data[0].currencies[Object.keys(data[0].currencies)].name;
             let languages = Object.values(data[0].languages).toString().split(",").join(", ");
+            var demo = data[0].demonyms.eng.f;
             result.innerHTML = `
             <img src= " ${flag}" class="flag-img">
             <h2> ${common} </h2>
-            <div class="wrapper">
-                <div class="data-wrapper">  
-                    <h4> Capital: </h4>
-                    <span> ${capital} </span>
-                </div>
+            <div class="items">  
+                <h4> Capital: </h4>
+                <span> ${capital} </span>
             </div>
-            <div class="wrapper">
-                <div class="data-wrapper">  
-                    <h4> Continent: </h4>
-                    <span> ${continent} </span>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="data-wrapper">  
-                    <h4> Population: </h4>
-                     <span> ${data[0].population} </span>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="data-wrapper">  
-                    <h4> Currency: </h4>
-                 <span>   ${currency}  </span>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="data-wrapper">  
-                    <h4> Common languages: </h4>
-                    <span> ${languages} </span>
-                </div>
+            <div class="items">  
+                <h4> Continent: </h4>
+                <span> ${continent} </span>
+            </div>    
+            <div class="items">  
+                <h4> Population: </h4>
+                <span> ${data[0].population} </span>
+            </div>    
+            <div class="items">  
+                <h4> Currency: </h4>
+                <span>   ${currency} - ${INR}  </span>
+            </div>  
+            <div class="items">  
+                <h4> Common languages: </h4>
+                <button class="meals"> ${languages} </button>
             </div>
             `;
+
         })
         .catch(() => {
             if (countryName.length == 0) {
@@ -57,7 +51,24 @@ searchButton.addEventListener("click", () => {
             else {
                 result.innerHTML = `<h3> Invalid country. Try again !! </h3>`
             }
-
+            return demo;
         });
 
+}
+);
+
+searchMeal.addEventListener("click", () => {
+    let mealUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=spanish`;
+    fetch(mealUrl)
+        .then((response) => response.json())
+        .then((data2) => {
+            console.log(data2.meals);
+            // for (let i = 0; i < data2.meals.length; i++) {
+            //     console.log(data2.meals[i].strMeal);
+            //     console.log(data2.meals);
+
+
+            // let csak = data2.meals[0].strMeal;
+            // <img src= " ${data2.meals[0].strMealThumb}" class="flag-img">
+        });
 });
