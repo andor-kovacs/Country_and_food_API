@@ -14,10 +14,16 @@
     <img src="./img/meal_and_country.jpg" alt="meal_county">
     <div class="container">
         <div class="search">
-            <input type="text" placeholder="Country name" class="county-inp">
-            <button class="search-button"> Search </button>
+            <label for="">
+                Country ??
+                <input type="text" placeholder="Country name" class="county-inp">
+            </label>
+            <button type="submit" class="search-button"> Search </button>
         </div>
-        <div class="result"></div>
+        <div class="result-container">
+            <div class="result-countries"></div>
+            <div class="result-meals"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
