@@ -39,33 +39,34 @@ searchButton.addEventListener("click", () => {
             resultCountries.innerHTML = `
                 <img src= " ${flag}" class="flag-img">
                 <h2> ${common} </h2>
-                <div class="items">  
+                <div class="country-items">  
                     <h4> Capital: </h4>
                     <span> ${capital} </span>
                 </div>
-                <div class="items">  
+                <div class="country-items">  
                     <h4> Continent: </h4>
                     <span> ${continent} </span>
                 </div>    
-                <div class="items">  
+                <div class="country-items">  
                     <h4> Population: </h4>
                     <span> ${sCountry[0].population} </span>
                 </div>    
-                <div class="items">  
+                <div class="country-items">  
                     <h4> Currency: </h4>
                     <span>   ${currency} - ${INR}  </span>
                 </div>  
-                <div class="items">  
+                <div class="country-items">  
                     <h4> Common languages: ${languages}</h4>
-                    <button class="meals">  </button>
                 </div>
                  `;
             resultMeals.innerHTML = "";
             for (let meal of mLm) {
                 resultMeals.innerHTML += `
                     <div class="meals">  
-                        <h4> Meals: </h4>
-                        <p> ${meal.strMeal} </p> 
+                        <div class="meal-items"> 
+                            <h4> Food: </h4>
+                            <p> ${meal.strMeal} </p> 
+                        </div>
                         <img class="meals-img" src="${meal.strMealThumb}" alt="${meal.strMeal}" />       
                     </div>
                     `;
@@ -73,14 +74,30 @@ searchButton.addEventListener("click", () => {
         })
         .catch(() => {
             if (countryName.length == 0) {
-                resultCountries.innerHTML = `<h3> Cannot be empty !! </h3>`
+                resultCountries.innerHTML = `<h3> Country name cannot be empty !! </h3>`;
+                resultMeals.innerHTML = '';
             }
-            if (mealsList.meals === 'null') {
-                resultCountries.innerHTML = `<h3> Not found ${languages} meals. </h3>`
+            else if (sCountry.status === 404) {
+                resultCountries.innerHTML = `<h3> Not found ${countryName} country. </h3>`;
+                resultMeals.innerHTML = '';
+            }
+            else if ((mealsList.meals === null)) {
+                resultMeals.innerHTML = `<h3> Not found ${languages} meals. </h3>
+                <h3> Try again !!!  </h3>
+                `;
             }
             else {
-                resultCountries.innerHTML = `<h3> Invalid country. Try again !! </h3>`
+                resultCountries.innerHTML = `<h3> Invalid country. Try again !! </h3>`;
+                resultMeals.innerHTML = '';
             }
         });
 
+});
+
+var input = document.getElementById("myInput");
+input.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("myBtn").click();
+    }
 });

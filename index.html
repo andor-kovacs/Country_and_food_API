@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="./styles.css">
 
 <head>
+    <link href='https://css.gg/search.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country and meal</title>
-    <link rel="shortcut icon" href="./img/meal_and_country.jpg" type="image/x-icon">
+    <title>Countries and foods</title>
 </head>
 
 <body>
-    <img src="./img/meal_and_country.jpg" alt="meal_county">
-    <div class="container">
+    <header class="head">
+        <h1>Countries and foods</h1>
         <div class="search">
-            <label for="">
-                Country ??
-                <input type="text" placeholder="Country name" class="county-inp">
+            <label for="myInput">
+                <input type="text" id="myInput" placeholder="Country name" class="county-inp">
             </label>
-            <button type="submit" class="search-button"> Search </button>
+            <button type="submit" id="myBtn" class="search-button"> <i class="gg-search"></i> </button>
         </div>
-        <div class="result-container">
-            <div class="result-countries"></div>
-            <div class="result-meals"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="result-container">
+                <div class="result-countries"></div>
+                <div class="result-meals"></div>
+            </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+    </main>
+    <script src="mealcountry.js"></script>
 </body>
 
 </html>
