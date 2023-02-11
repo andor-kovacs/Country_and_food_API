@@ -14,9 +14,7 @@ searchButton.addEventListener("click", () => {
         .then((country) => { return country.json(); })
         .then((country) => {
             sCountry = country;
-            console.log(country);
             languages = Object.values(sCountry[0].languages)[0];
-            console.log(languages);
             return fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${languages}`);
         })
         .then((meals) => {
@@ -24,7 +22,6 @@ searchButton.addEventListener("click", () => {
         })
         .then((meals) => {
             mealsList = meals;
-            console.log(mealsList);
         })
         .then(() => {
             let flag = sCountry[0].flags.svg;
